@@ -8,6 +8,8 @@ import torch
 from transformers import DistilBertTokenizer, DistilBertForSequenceClassification
 from app.utils import preprocess
 
+openai.api_key = os.getenv("OPENAI_API_KEY")
+
 # Cargar variables de entorno
 if not os.path.exists('.env'):
     print("Advertencia: No se encontró el archivo .env.")
