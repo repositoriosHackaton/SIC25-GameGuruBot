@@ -8,6 +8,26 @@ import torch
 # Crea un blueprint para organizar las rutas de la aplicación
 app_routes = Blueprint('app_routes', __name__)
 
+@app_routes.route('/consejo', methods=['GET'])
+def consejo():
+    consejo = obtener_consejo()
+    return jsonify({"consejo": consejo})
+
+@app_routes.route('/juegos_gratis', methods=['GET'])
+def juegos_gratis():
+    juegos = obtener_juegos_gratis()
+    return jsonify({"juegos_gratis": juegos})
+
+@app_routes.route('/proximos_juegos_gratis', methods=['GET'])
+def proximos_juegos_gratis():
+    juegos = obtener_proximos_juegos_gratis()
+    return jsonify({"proximos_juegos_gratis": juegos})
+
+@app_routes.route('/ofertas_gog', methods=['GET'])
+def ofertas_gog():
+    ofertas = obtener_ofertas_gog()
+    return jsonify({"ofertas_gog": ofertas})
+
 # Ruta principal
 @app_routes.route('/')
 def index():

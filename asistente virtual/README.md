@@ -11,14 +11,17 @@ asistente-virtual
 │   ├── routes.py            # Define las rutas de la API
 │   ├── models.py            # Carga y evalúa el modelo DistilBERT
 │   ├── utils.py             # Funciones auxiliares (traducción, preprocesamiento, etc.)
-│   └── config.py            # Configuraciones centralizadas (parámetros, claves de API)
+│   ├── config.py            # Configuraciones centralizadas (parámetros, claves de API)
+│   ├── concejos.py          # Funciones para obtener consejos aleatorios
+│   ├── epicgames.py         # Funciones para obtener juegos gratis de Epic Games
+│   ├── gog.py               # Funciones para obtener ofertas de GOG
+│   ├── db.json              # Base de datos de preguntas y respuestas
+│   └── training_data.json   # Datos de entrenamiento para el modelo
 ├── frontend
 │   ├── static               # Archivos estáticos (CSS, JS, imágenes)
 │   └── templates
 │       └── index.html       # Plantilla principal de la aplicación
 ├── uploads                  # Directorio para archivos subidos
-├── db.json                  # Base de datos de preguntas y respuestas
-├── training_data.json       # Datos de entrenamiento para el modelo
 ├── model_folder             # Almacena el modelo DistilBERT entrenado
 ├── best_model_folder        # Almacena la mejor versión del modelo entrenado
 ├── app.py                   # Punto de entrada de la aplicación
