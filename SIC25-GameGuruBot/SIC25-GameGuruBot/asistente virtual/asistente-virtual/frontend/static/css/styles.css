@@ -1,0 +1,307 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, rgba(84, 130, 255, 0.76), rgb(28, 1, 48));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Cambia height a min-height */
+    margin: 0;
+    padding: 5px;
+    box-sizing: border-box;
+    position: relative; /* Añade posición relativa al body */
+}
+
+.footer {
+    width: 100%;
+    background-color: rgba(10, 0, 29, 0.212);
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    border-radius: 10px;
+    margin-top: auto; /* Empuja el footer hacia la parte inferior */
+}
+
+/* Agregar estas reglas al archivo styles.css */
+
+.chat-container {
+    background: hwb(230 0% 82% / 0.719);
+    border-radius: 20px; /* Bordes redondeados */
+    width: 100%;
+    max-width: 780px;
+    padding: 20px;
+    scrollbar-color: hwb(253 11% 4% / 0.274) rgba(22, 18, 48, 0);
+    scrollbar-width: thin;
+    box-sizing: border-box;
+    flex-grow: 1;
+    margin-top: 5px; /* Reducimos el margen superior */
+    margin-bottom: 20px;
+    position: relative; /* Necesario para el borde animado */
+    border: 5px solid transparent; /* Borde más grueso y transparente */
+    border-image: linear-gradient(
+        45deg,
+        #7700ffe0, /* Color 1 */
+        #ff0000, /* Color 2 */
+        hsl(283, 100%, 50%), /* Color 1 */
+        #ff0000  /* Color 2 */
+    ) 1; /* El valor '1' define el grosor del borde */
+   
+    border-image-slice: 1; /* Asegura que el gradiente cubra todo el borde */
+    animation: animate-border 3s linear infinite; /* Animación de 3 segundos */
+}
+
+/* Animación para cambiar los colores del borde */
+@keyframes animate-border {
+    0% {
+        border-image-source: linear-gradient(45deg, #ff0000, #ff00ff, #00fffb, #ff00ff);
+    }
+    25% {
+        border-image-source: linear-gradient(45deg, #ff00ff, #1900ff, #ff00ff, #ff0015);
+    }
+    50% {
+        border-image-source: linear-gradient(45deg, #00fffb, #ff00ff, #0099ff, #ff00ff);
+    }
+    75% {
+        border-image-source: linear-gradient(45deg, #ff00ff, hsl(207, 100%, 50%), #ff00ff, #ff0022);
+    }
+    100% {
+        border-image-source: linear-gradient(45deg, #ff0000, #ff00ff, #2f00ff, #ff00ff);
+    }
+}
+
+/* linea alrededor del chatbox, esta transparente para que no se vea y las letras no se salgan. */
+.chat-box {
+    height: 300px;
+    overflow-y: auto;
+    border: 1px solid rgba(28, 5, 58, 0);
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 10px;
+    box-sizing: border-box; /* Incluir padding en el ancho total */
+    word-wrap: break-word; /* Permitir que las palabras largas se dividan */
+    overflow-wrap: break-word; /* Permitir que las palabras largas se dividan */
+    background-color: #ffffff00; /* Asegurarse de que el fondo del chatbox sea blanco */
+}
+
+/* Contenedor del título y la imagen */
+.title-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: -50px; /* Margen inferior reducido */
+}
+
+/* Contenedor de la línea (imagen + texto) */
+.title-line {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo de la imagen */
+.title-image {
+    width: 290px; /* Tamaño de la imagen */
+    height: 290px; /* Tamaño de la imagen */
+    margin-right: 1px; /* Espacio entre la imagen y el texto */
+    border-radius: 50%; /* Opcional: para una imagen redonda */
+}
+
+/* Efecto de zoom al pasar el mouse sobre la imagen */
+.zoom-image {
+    transition: transform 0.3s ease; /* Transición suave */
+}
+
+.zoom-image:hover {
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen en un 10% */
+}
+
+/* Contenedor del texto (ambas líneas) */
+.title-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Estilo del título principal */
+.chat-title {
+    font-family: 'Roboto', sans-serif;
+    font-size: 35px;
+    font-weight: 780;
+    color: #fff;
+    background: linear-gradient(to right, #9602aa, #3a016ecc, hsla(310, 99%, 38%, 0.952), #01116bbb);
+    background-size: 440px;
+    background-position: 0;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: move 3s linear infinite;
+    animation-delay: 0s;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Estilo del subtítulo */
+.chat-subtitle {
+    font-family: 'Roboto', sans-serif;
+    font-size: 31px;
+    font-weight: 780;
+    color: #fff;
+    background: linear-gradient(to right, #9602aa, #3a016ecc, hsla(310, 99%, 38%, 0.952), #01116bbb);
+    background-size: 440px;
+    background-position: 0;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: move 3s linear infinite;
+    animation-delay: 0s;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Nuevo título arriba del chat-container */
+.chat-instruction {
+    font-family: 'Roboto', sans-serif;
+    font-size: 24px;
+    font-weight: 500;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 5px; /* Reducimos el margen inferior */
+    background: linear-gradient(to right, hwb(345 0% 79%), #250047, hwb(330 0% 24% / 0.685), #2c0125);
+    background-size: 440px;
+    background-position: 0;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: move 3s linear infinite;
+    animation-delay: 0s;
+}
+
+/* Animación del gradiente */
+@keyframes move {
+    0% {
+        background-position: 0;
+    }
+    60% {
+        background-position: 180px;
+    }
+    100% {
+        background-position: 440px;
+    }
+}
+
+/* Efecto de las letras dentro del cuadro cuando chateas con el asistente */
+.chat-message img {
+    background-color: #f4f4f4; /* Fondo claro detrás de la imagen */
+    padding: 5px; /* Espaciado alrededor de la imagen */
+    border: 1px solid #ccc; /* Borde suave */
+    border-radius: 10px; /* Bordes redondeados */
+}
+
+/* Color de las letras de la persona al chatear */
+.user {
+    color: #f5ecec; /* Cambiado a negro */
+}
+
+/* Color de las letras del asistente cuando responde */
+.assistant {
+    color: #478bd8;
+}
+
+/* Barra donde la persona chatea */
+input[type="text"] {
+    width: calc(100% - 100px); /* Ancho relativo */
+    padding: 10px;
+    border: 1px solid #f2f3f5;
+    border-radius: 20px;
+    font-size: 1rem; /* Tamaño de la fuente en rem para responsividad */
+    border-color: #02254b; /* Color del borde al enfocar */
+    background-color: hsl(253, 91%, 78%); /* Color de fondo al enfocar */
+    outline: none; /* Quitar el contorno predeterminado */
+    box-sizing: border-box; /* Incluir padding en el ancho total */
+}
+
+/* Botón de enviar */
+button {
+    padding: 17px;
+    border: none;
+    background-color: #2d0180;
+    color: white;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'Roboto', sans-serif; /* Fuente bonita */
+}
+
+button:hover {
+    background-color: #0300b3a8;
+}
+
+/* Media Queries para ajustar el diseño en pantallas más pequeñas */
+@media (max-width: 600px) {
+    .chat-title {
+        font-size: 2.5rem; /* Tamaño de fuente más pequeño en pantallas pequeñas */
+        margin-bottom: 20px; /* Ajustar el margen inferior */
+    }
+
+    .chat-container {
+        padding: 10px; /* Menos padding en pantallas pequeñas */
+    }
+
+    .chat-box {
+        height: 200px; /* Ajustar altura en pantallas pequeñas */
+    }
+
+    input[type="text"] {
+        width: calc(100% - 80px); /* Ajustar el ancho en pantallas pequeñas */
+    }
+}
+
+/* Efecto de fondo con objetos flotantes */
+.circles {
+    position: fixed; /* Cambia a fixed para que ocupe toda la ventana */
+    top: 0;
+    left: 0;
+    width: 110%; /* Ocupa el 100% del ancho */
+    height: 110%; /* Ocupa el 100% del alto */
+    z-index: -1; /* Asegúrate de que esté detrás del contenido */
+    overflow: hidden; /* Evita que los elementos salgan del contenedor */
+}
+
+.circles li {
+    position: absolute;
+    display: block;
+    list-style: none;
+    width: 20px;
+    height: 20px;
+    background: #00f4fc34;
+    animation: animate 25s linear infinite;
+    bottom: -150px; /* Comienza fuera de la vista */
+    border-radius: 40px;
+}
+
+/* Animación de las burbujas */
+@keyframes animate {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-150vh); /* Eleva el objeto fuera de la vista */
+    }
+}
+
+/* Estilos para cada objeto flotante */
+.circles li:nth-child(1) { left: 25%; width: 80px; height: 80px; animation-duration: 20s; }
+.circles li:nth-child(2) { left: 10%; width: 20px; height: 20px; animation-duration: 25s; }
+.circles li:nth-child(3) { left: 70%; width: 20px; height: 20px; animation-duration: 20s; }
+.circles li:nth-child(4) { left: 40%; width: 60px; height: 60px; animation-duration: 15s; }
+.circles li:nth-child(5) { left: 65%; width: 20px; height: 20px; animation-duration: 20s; }
+.circles li:nth-child(6) { left: 75%; width: 90px; height: 90px; animation-duration: 25s; }
+.circles li:nth-child(7) { left: 35%; width: 50px; height: 50px; animation-duration: 30s; }
+.circles li:nth-child(8) { left: 50%; width: 25px; height: 25px; animation-duration: 35s; }
+.circles li:nth-child(9) { left: 20%; width: 15px; height: 15px; animation-duration: 40s; }
+.circles li:nth-child(10) { left: 85%; width: 50px; height: 50px; animation-duration: 45s; }
+.circles li:nth-child(7) { left: 35%; width: 100px; height: 100px; animation-duration: 15s; }
+.circles li:nth-child(8) { left: 50%; width: 20px; height: 20px; animation-duration: 20s; }
+.circles li:nth-child(9) { left: 20%; width: 110px; height: 110px; animation-duration: 25s; }
+.circles li:nth-child(10) { left: 85%; width: 20px; height: 20px; animation-duration: 20s; }
+
+/* Estilo para las imágenes subidas */
+.chat-message img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}

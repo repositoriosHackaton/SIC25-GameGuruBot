@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asistente Virtual</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <ul class="circles">
+        <li></li>
+        <!-- Más elementos... -->
+    </ul>
+
+    <div class="title-container">
+        <div class="title-line">
+            <img src="{{ url_for('static', filename='guru.png') }}" alt="GameGuru Bot" class="title-image zoom-image">
+            <div class="title-text">
+                <h1 class="chat-title">¡Hola! Soy GameGuru Bot</h1>
+                <h1 class="chat-subtitle">tu asistente virtual de Samsung Gamer<br>Insights.<br></h1>
+            </div>
+        </div>
+    </div>
+
+    <h2 class="chat-instruction">Puedes chatear conmigo si tienes dudas referentes a videojuegos</h2>
+
+    <div class="chat-container">
+        <div class="chat-box" id="chat-box"></div>
+        <form id="chat-form">
+            <input type="text" id="user-input" name="question" placeholder="Escribe tu pregunta aquí...">
+            <button type="button" id="send-button">Enviar</button>
+        </form>
+        <input type="file" id="file-input" style="display:none;">
+        <input type="file" id="audio-input" accept="audio/*" style="display:none;">
+        <button type="button" id="upload-file-button">Subir Archivo</button>
+        <button type="button" id="upload-audio-button">Subir Audio</button>
+    </div>
+
+    <footer class="footer">
+        <p>© 2025 Samsung Gamer Insights. Todos los derechos reservados.</p>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>
+
